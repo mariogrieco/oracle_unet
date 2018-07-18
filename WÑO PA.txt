@@ -1,0 +1,20 @@
+INSERT INTO DETALLE_OP VALUES (
+  '001',
+  '100',
+  (SELECT dp.PESO
+    FROM registro_op r
+    INNER JOIN PRODUCTOS p
+    on p.producto_id = r.producto_id
+    INNER JOIN DETALLE_PRO dp
+    on p.producto_id = dp.producto_id
+    WHERE P.PRODUCTO_ID LIKE('00001')),
+  10,
+  25,
+  (SELECT r.registro_id
+  FROM registro_op r
+  INNER JOIN PRODUCTOS p
+  on p.producto_id = r.producto_id
+  INNER JOIN DETALLE_PRO dp
+  on p.producto_id = dp.producto_id
+  WHERE P.PRODUCTO_ID LIKE('00001'))
+);

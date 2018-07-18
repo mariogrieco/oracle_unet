@@ -1,0 +1,40 @@
+-- CREATE TABLE PRODUCTOS (
+--     id_producto                  VARCHAR2(40) NOT NULL,
+--     titulo                       VARCHAR2(50) NOT NULL,
+--     descripcion                  VARCHAR2(30) NOT NULL,
+--     codigo_barra                 VARCHAR2(50) NOT NULL,
+--     referencia_cod               VARCHAR2(50) NOT NULL,
+--     cpe_cod                      VARCHAR2(50),
+--     registro                     VARCHAR2(50),
+--    CONSTRAINT PRODUCTO_PK PRIMARY KEY (id_producto)
+-- );
+
+-- CREATE TABLE REGISTRO_OP (
+--    id_registro     VARCHAR2(50) NOT NULL,
+--    tipo            CHAR(1) NOT NULL,
+--    fecha           DATE NOT NULL,
+--    id_producto     VARCHAR2(50) NOT NULL,
+--    constraint CHK_IN_TIPO CHECK (tipo in ('D','V')),
+--    CONSTRAINT REGISTRO_OP_PK PRIMARY KEY (id_registro),
+--    CONSTRAINT REGISTRO_OP_PRODUCTO_FK FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id_producto)
+-- );
+
+-- CREATE TABLE DETALLE_OP (
+--     id_detalle VARCHAR2(50) NOT NULL,
+--     monto_base number(25,5) NOT NULL,
+--     peso number(20,5) NOT NULL,
+--     cantidad number(10) NOT NULL,
+--     iva number(10,2) NOT NULL,
+--     id_registro     VARCHAR2(50) NOT NULL,
+--     CONSTRAINT DETALLE_OP_PK PRIMARY KEY (id_detalle),
+--     CONSTRAINT DETALLE_OP_REGISTRO_OP_FK FOREIGN KEY (id_registro) REFERENCES REGISTRO_OP(id_registro)
+-- );
+
+-- CREATE TABLE DETALLE_PRO (
+--     id_detalle_pro    VARCHAR2(50) NOT NULL,
+--     CONSTRAINT PK_DETALLE_PRO PRIMARY KEY (id_detalle_pro),
+--     monto_base        NUMBER(20,3) NOT NULL,
+--     PESO              NUMBER(10,3) NOT NULL,
+--     id_producto       VARCHAR2(50) NOT NULL,
+--     CONSTRAINT DETALLE_PRO_PRODUCTO_FK FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id_producto) 
+-- );
